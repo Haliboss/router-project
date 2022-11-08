@@ -9,6 +9,7 @@ import Paths from "./pages/Paths";
 import PersonDetail from "./pages/PersonDetail";
 import FullStack from "./pages/FullStack";
 import Aws from "./pages/Aws";
+import PrivateRouter from "./pages/PrivateRouter";
 
 function App() {
   return (
@@ -19,10 +20,14 @@ function App() {
         <Route path="/people" element={<People />} />
         <Route path="/people/:id" element={<PersonDetail />} />
         <Route path="/paths" element={<Paths />}>
-          <Route index element={<FullStack/>}/>
-          <Route path="aws" element={<Aws/>}/>
+          <Route index element={<FullStack />} />
+          <Route path="aws" element={<Aws />} />
         </Route>
-        <Route path="/contact" element={<Contact />} />
+
+        <Route path="contact" element={<PrivateRouter />}>
+          <Route path="/contact" element={<Contact />} />
+        </Route>
+
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
