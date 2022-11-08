@@ -7,6 +7,8 @@ import NotFound from "./pages/NotFound";
 import { Routes, Route } from "react-router-dom";
 import Paths from "./pages/Paths";
 import PersonDetail from "./pages/PersonDetail";
+import FullStack from "./pages/FullStack";
+import Aws from "./pages/Aws";
 
 function App() {
   return (
@@ -16,7 +18,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/people" element={<People />} />
         <Route path="/people/:id" element={<PersonDetail />} />
-        <Route path="/paths" element={<Paths />} />
+        <Route path="/paths" element={<Paths />}>
+          <Route index element={<FullStack/>}/>
+          <Route path="aws" element={<Aws/>}/>
+        </Route>
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
